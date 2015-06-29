@@ -1,6 +1,9 @@
 set(CMAKE_SYSTEM_NAME Model-checking)
 
 find_program(CBMC cbmc)
+find_program(GOTO_CC goto-cc)
+find_program(GOTO_INST goto-instrument)
+
 set(CBMC_FLAGS
 	--bounds-check
 	--div-by-zero-check
@@ -12,8 +15,5 @@ set(CBMC_FLAGS
 	--nan-check
 	)
 
-set(CMAKE_C_COMPILER goto-cc)
-set(CMAKE_CXX_COMPILER goto-cc)
-set(CMAKE_AR goto-cc)
-set(CMAKE_CXX_CREATE_STATIC_LIBRARY "${CMAKE_CXX_CREATE_SHARED_LIBRARY}")
-set(CMAKE_C_CREATE_STATIC_LIBRARY "${CMAKE_C_CREATE_SHARED_LIBRARY}")
+set(CMAKE_C_COMPILER ${GOTO_CC})
+set(CMAKE_CXX_COMPILER ${GOTO_CC})
