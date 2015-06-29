@@ -2,19 +2,24 @@
 
 // possible transitions
 #include "StateAuto.h"
+#include "StateGuided.h"
 
 #include <assert.h>
 
-static void  callbackAuto(StatePtr state) {
-    assert(state != 0);
-    transitionToAuto(state);
+static void callbackAuto(CommanderPtr instance) {
+    transitionToAuto(instance);
 }
 
-void transitionToManual(StatePtr state) {
-    assert(state != 0);
-    defaultImplementation(state);
-    state->cbAuto = callbackAuto;
-    state->name = "Manual";
+static void callbackGuided(CommanderPtr instance) {
+    transitionToGuided(instance);
+}
+
+void transitionToManual(CommanderPtr instance) {
+    commanderDefaultTransition(instance);
+    instance->state= STATE_MANUAL;
+    instance->callbackAuto = callbackAuto;
+    instance->callbackGuided = callbackGuided;
 }
 
 /* vim: set et fenc=utf-8 ff=unix sts=0 sw=4 ts=4 : */
+

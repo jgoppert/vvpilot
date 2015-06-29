@@ -1,23 +1,43 @@
 #include "Commander.h"
-
 #include "StateManual.h"
-#include "StateAuto.h"
 
 #include <assert.h>
 
 void commanderInit(CommanderPtr instance) {
-    assert(instance != 0);
-    transitionToManual(&instance->state);
+    transitionToManual(instance);
 }
 
-void commanderCallbackManual(CommanderPtr instance) {
-    assert(instance != 0);
-    instance->state.cbManual(&instance->state);
+void commanderUpdate(CommanderPtr instance,
+        commanderEvent_t event) {
+    switch (event) {
+        case EVENT_MANUAL:
+            instance->callbackManual(instance);
+            break;
+        case EVENT_AUTO:
+            instance->callbackAuto(instance);
+            break;
+        case EVENT_GUIDED:
+            instance->callbackGuided(instance);
+            break;
+        default:
+            break;
+    }
 }
 
-void commanderCallbackAuto(CommanderPtr instance) {
-    assert(instance != 0);
-    instance->state.cbAuto(&instance->state);
+static void callbackManualDefault(CommanderPtr instance) {
+}
+
+static void callbackAutoDefault(CommanderPtr instance) {
+}
+
+static void callbackGuidedDefault(CommanderPtr instance) {
+}
+
+void commanderDefaultTransition(CommanderPtr instance) {
+    instance->state= STATE_UNINIT;
+    instance->callbackManual = callbackManualDefault;
+    instance->callbackAuto = callbackAutoDefault;
+    instance->callbackGuided = callbackGuidedDefault;
 }
 
 /* vim: set et fenc=utf-8 ff=unix sts=0 sw=4 ts=4 : */
