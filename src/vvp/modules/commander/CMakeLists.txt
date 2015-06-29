@@ -1,3 +1,9 @@
+set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
+	-Wpedantic
+	-pedantic-errors
+	)
+join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
+
 add_library(commander ${LIBTYPE}
 	StateManual.c
 	StateAuto.c

@@ -2,3 +2,4 @@ build*/
 *.swp
 Testing/
 *.orig
+*.pyc

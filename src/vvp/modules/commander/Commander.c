@@ -3,6 +3,8 @@
 
 #include <assert.h>
 
+#include <vvp/common/common.h>
+
 void commanderInit(CommanderPtr instance) {
     transitionToManual(instance);
 }
@@ -25,12 +27,15 @@ void commanderUpdate(CommanderPtr instance,
 }
 
 static void callbackManualDefault(CommanderPtr instance) {
+    UNUSED(instance);
 }
 
 static void callbackAutoDefault(CommanderPtr instance) {
+    UNUSED(instance);
 }
 
 static void callbackGuidedDefault(CommanderPtr instance) {
+    UNUSED(instance);
 }
 
 void commanderDefaultTransition(CommanderPtr instance) {

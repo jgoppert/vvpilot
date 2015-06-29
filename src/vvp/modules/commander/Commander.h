@@ -5,11 +5,11 @@
  * finite state machine.
  */
 typedef enum {
-    EVENT_MANUAL, // request for manual
-    EVENT_AUTO, // request for auto
-    EVENT_GUIDED, // request for guided
-    EVENT_NUMBER, // number of events
-    EVENT_UNINIT, // unitialized
+    EVENT_MANUAL, /* request for manual */
+    EVENT_AUTO, /* request for auto */
+    EVENT_GUIDED, /* request for guided */
+    EVENT_NUMBER, /* number of events */
+    EVENT_UNINIT /* unitialized */
 } commanderEvent_t;
 
 /**
@@ -20,11 +20,11 @@ typedef enum {
  * be kept as small as possible.
  */
 typedef enum {
-    STATE_MANUAL, // manual mode
-    STATE_AUTO, // auto mode
-    STATE_GUIDED, // guided mode
-    STATE_NUMBER, // number of states
-    STATE_UNINIT, // uninitialized
+    STATE_MANUAL, /* manual mode */
+    STATE_AUTO, /* auto mode */
+    STATE_GUIDED, /* guided mode */
+    STATE_NUMBER, /* number of states */
+    STATE_UNINIT /* uninitialized */
 } commanderState_t;
 
 /**

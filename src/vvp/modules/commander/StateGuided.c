@@ -1,8 +1,8 @@
-#include "StateAuto.h"
-
-// possible transitions
-#include "StateManual.h"
 #include "StateGuided.h"
+
+/* possible transitions */
+#include "StateManual.h"
+#include "StateAuto.h"
 
 #include <assert.h>
 
@@ -10,15 +10,15 @@ static void callbackManual(CommanderPtr instance) {
     transitionToManual(instance);
 }
 
-static void callbackGuided(CommanderPtr instance) {
-    transitionToGuided(instance);
+static void callbackAuto(CommanderPtr instance) {
+    transitionToAuto(instance);
 }
 
-void transitionToAuto(CommanderPtr instance) {
+void transitionToGuided(CommanderPtr instance) {
     commanderDefaultTransition(instance);
-    instance->state= STATE_AUTO;
+    instance->state= STATE_GUIDED;
     instance->callbackManual = callbackManual;
-    instance->callbackGuided = callbackGuided;
+    instance->callbackAuto = callbackAuto;
 }
 
 /* vim: set et fenc=utf-8 ff=unix sts=0 sw=4 ts=4 : */

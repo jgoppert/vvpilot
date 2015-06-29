@@ -3,4 +3,9 @@ set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
 	)
 join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 
-add_library(cbmc_stub ${LIBTYPE} cbmc_stub.c)
+message(STATUS "CFLAGS: ${CMAKE_C_FLAGS}")
+
+
+if (NOT CBMC)
+	add_subdirectory(posix)
+endif()

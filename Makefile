@@ -9,9 +9,15 @@ build-mc:
 	mkdir -p build-mc && cd build-mc && cmake -DCMAKE_TOOLCHAIN_FILE=cmake/goto-cc-toolchain.cmake .. && make
 
 test: build
+	cd build && ctest
+
+test-V: build
 	cd build && ctest -V
 
 test-mc: build-mc
+	cd build-mc && ctest
+
+test-mc-V: build-mc
 	cd build-mc && ctest -V
 
 clean:

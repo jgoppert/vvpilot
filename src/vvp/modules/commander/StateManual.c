@@ -1,6 +1,6 @@
 #include "StateManual.h"
 
-// possible transitions
+/* possible transitions */
 #include "StateAuto.h"
 #include "StateGuided.h"
 
