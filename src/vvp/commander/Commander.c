@@ -8,19 +8,19 @@ void commanderInit(CommanderPtr instance) {
 }
 
 void commanderUpdate(CommanderPtr instance,
-        commanderEvent_t event) {
+                     commanderEvent_t event) {
     switch (event) {
-        case EVENT_MANUAL:
-            instance->callbackManual(instance);
-            break;
-        case EVENT_AUTO:
-            instance->callbackAuto(instance);
-            break;
-        case EVENT_GUIDED:
-            instance->callbackGuided(instance);
-            break;
-        default:
-            break;
+    case EVENT_MANUAL:
+        instance->callbackManual(instance);
+        break;
+    case EVENT_AUTO:
+        instance->callbackAuto(instance);
+        break;
+    case EVENT_GUIDED:
+        instance->callbackGuided(instance);
+        break;
+    default:
+        break;
     }
 }
 

@@ -15,6 +15,9 @@ test-mc: build-mc
 clean:
 	rm -rf build build-mc
 
+format: build
+	cd build && make format
+
 test-all: test test-mc
 
 cbmc-ubuntu-install:

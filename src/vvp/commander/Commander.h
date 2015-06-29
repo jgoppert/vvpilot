@@ -41,7 +41,7 @@ typedef void (*CallbackGuided)(CommanderPtr);
  * Commander data structure.
  *
  * This contains callbacks and an identifier
- * of the current state just for 
+ * of the current state just for
  * use when debugging.
  *
  * Do not use the state variable
@@ -67,7 +67,7 @@ void commanderInit(CommanderPtr instance);
  * Updates a commander based on the event type.
  */
 void commanderUpdate(CommanderPtr instance,
-        commanderEvent_t event);
+                     commanderEvent_t event);
 
 
 /**
