@@ -22,3 +22,10 @@ make
 ```
 
 This creates two directories, one is build (standard build), and the other is build-mc (using the cbmc goto compiler).
+
+## Test
+
+To run all of the tests for model checking and the regular build run:
+```back
+make test-all
+```
