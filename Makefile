@@ -17,4 +17,7 @@ clean:
 
 test-all: test test-mc
 
-.PHONY: build build-mc clean test-all test test-mc
+cbmc-ubuntu-install:
+	./scripts/ubuntu-install.sh
+
+.PHONY: build build-mc clean test-all test test-mc cbmc-ubuntu-install
