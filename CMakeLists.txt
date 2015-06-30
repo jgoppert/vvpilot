@@ -7,7 +7,9 @@ include(join)
 project(vvpilot C)
 
 set(CBMC_FLAGS ${CBMC_FLAGS}
-	--unwind 1
+	# for now, don't unwind more than 2, takes a long
+	# time and debugging
+	--unwind 3
 	--no-unwinding-assertions
 	)
 

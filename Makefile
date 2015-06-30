@@ -1,3 +1,5 @@
+CTEST_FLAGS ?= ""
+
 all: build-all
 
 build-all: build build-mc
@@ -9,16 +11,10 @@ build-mc:
 	mkdir -p build-mc && cd build-mc && cmake -DCMAKE_TOOLCHAIN_FILE=cmake/goto-cc-toolchain.cmake .. && make
 
 test: build
-	cd build && ctest
-
-test-V: build
-	cd build && ctest -V
+	cd build && ctest $(CTEST_FLAGS)
 
 test-mc: build-mc
-	cd build-mc && ctest
-
-test-mc-V: build-mc
-	cd build-mc && ctest -V
+	cd build-mc && ctest $(CTEST_FLAGS)
 
 clean:
 	rm -rf build build-mc
