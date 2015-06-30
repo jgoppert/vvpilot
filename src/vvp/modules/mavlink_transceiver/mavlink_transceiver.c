@@ -10,7 +10,6 @@
 
 #include <mavlink/mavlink_helpers.h>
 #include <vvp/common/common.h>
-#include <vvp/hal/hal.h>
 
 int mavlink_transceiver_init(mavlink_transceiver_t * this) {
     this->system.sysid = 100;

@@ -50,6 +50,5 @@ add_custom_target(format
 # main library
 
 add_subdirectory(src/vvp/common)
-add_subdirectory(src/vvp/hal)
 add_subdirectory(src/vvp/modules/commander)
 add_subdirectory(src/vvp/modules/mavlink_transceiver)
