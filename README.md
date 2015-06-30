@@ -1,6 +1,6 @@
 # vvpilot
 
-vvpilot is a barebones autopilot for quadrotors that is verified with the cbmc model checker. It is MAVLink compatible. The intended platform is the pixhawk autopilot.
+vvpilot is a barebones autopilot that is verified with the cbmc model checker. It is POSIX and MAVLink compatible. The intended platform is the pixhawk autopilot.
 
 ## Install Dependencies
 

@@ -1,13 +1,36 @@
-#include "MavlinkTransceiver.h"
+#include "mavlink_transceiver.h"
 
 #include <vvp/cbmc/cbmc_stub.h>
 #include <vvp/common/common.h>
+
+#include <time.h>
+#include <stdlib.h>
+#include <err.h>
 
 int main(int argc, char ** argv) {
     UNUSED(argc);
     UNUSED(argv);
 
-    // MavlinkTransceiver ml_trans;
+    mavlink_transceiver_t comm;
+    mavlink_transceiver_init(&comm);
+
+    clock_t start = clock();
+    if (start < 0) {
+        return RET_ERROR;
+    }
+
+    float tf = 1.0f;
+    float t = 0;
+
+    do {
+        mavlink_transceiver_receive(&comm);
+        clock_t now = clock();
+        if (now < 0) {
+            return RET_ERROR;
+        }
+        t = (float)(now - start) / CLOCKS_PER_SEC;
+    } while(t < tf);
+
     return 0;
 }
 

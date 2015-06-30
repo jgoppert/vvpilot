@@ -4,7 +4,7 @@ set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
 join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 
 add_library(mavlink_transceiver ${LIBTYPE}
-	MavlinkTransceiver.c
+	mavlink_transceiver.c
 	)
 
 include_directories(mavlink mavlink/common)
