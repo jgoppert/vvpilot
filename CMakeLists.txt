@@ -23,7 +23,7 @@ join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 message(STATUS "CFLAGS: ${CMAKE_C_FLAGS}")
 
 enable_testing()
-include_directories(src)
+include_directories(src third-party)
 
 # cbmc handling
 message(STATUS "CBMC: ${CBMC}")
