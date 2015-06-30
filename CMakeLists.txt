@@ -23,7 +23,7 @@ join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 message(STATUS "CFLAGS: ${CMAKE_C_FLAGS}")
 
 enable_testing()
-include_directories(src third-party)
+include_directories(vvp third-party)
 
 # cbmc handling
 message(STATUS "CBMC: ${CBMC}")
@@ -40,8 +40,8 @@ else()
 endif()
 
 # formatting
-file(GLOB_RECURSE SRC_FILES "src/vvp/*.c")
-file(GLOB_RECURSE HDR_FILES "src/vvp/*.h")
+file(GLOB_RECURSE SRC_FILES "vvp/*.c")
+file(GLOB_RECURSE HDR_FILES "vvp/*.h")
 message(STATUS ${SRC_FILES})
 add_custom_target(format
 	astyle ${SRC_FILES} ${HDR_FILES}
