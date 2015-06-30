@@ -116,7 +116,7 @@ MAVLINK_HELPER void _mavlink_send_uart(mavlink_channel_t chan, const uint8_t *bu
  * @brief Finalize a MAVLink message with channel assignment and send
  */
 #if MAVLINK_CRC_EXTRA
-MAVLINK_HELPER void _mav_finalize_message_chan_send(mavlink_channel_t chan, uint8_t msgid, const uint8_t *packet,
+MAVLINK_HELPER void _mav_finalize_message_chan_send(mavlink_channel_t chan, uint8_t msgid, const uint8_t *packet, 
 						    uint8_t length, uint8_t crc_extra)
 #else
 MAVLINK_HELPER void _mav_finalize_message_chan_send(mavlink_channel_t chan, uint8_t msgid, const uint8_t *packet, uint8_t length)
@@ -348,7 +348,7 @@ MAVLINK_HELPER uint8_t mavlink_frame_char_buffer(mavlink_message_t* rxmsg,
 		break;
 
 	case MAVLINK_PARSE_STATE_GOT_MSGID:
-		_MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx++] = (uint8_t)c;
+		_MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx++] = c;
 		mavlink_update_checksum(rxmsg, c);
 		if (status->packet_idx == rxmsg->len)
 		{
@@ -365,7 +365,7 @@ MAVLINK_HELPER uint8_t mavlink_frame_char_buffer(mavlink_message_t* rxmsg,
 		} else {
 			status->parse_state = MAVLINK_PARSE_STATE_GOT_CRC1;
 		}
-                _MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx] = (uint8_t)c;
+                _MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx] = c;
 		break;
 
 	case MAVLINK_PARSE_STATE_GOT_CRC1:
@@ -378,7 +378,7 @@ MAVLINK_HELPER uint8_t mavlink_frame_char_buffer(mavlink_message_t* rxmsg,
 			status->msg_received = MAVLINK_FRAMING_OK;
                 }
                 status->parse_state = MAVLINK_PARSE_STATE_IDLE;
-                _MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx+1] = (uint8_t)c;
+                _MAV_PAYLOAD_NON_CONST(rxmsg)[status->packet_idx+1] = c;
                 memcpy(r_message, rxmsg, sizeof(mavlink_message_t));
 		break;
 	}
