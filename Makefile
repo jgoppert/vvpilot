@@ -28,7 +28,7 @@ cbmc-ubuntu-install:
 	./scripts/ubuntu-install.sh
 
 graph: build-mc
-	cd build-mc && goto-instrument src/vvp/commander/test_commander --dot > graph.dot && sed -i '1d' graph.dot && dot -Tsvg -q graph.dot > graph.svg && eog graph.svg
+	cd build-mc && goto-instrument src/vvp/modules/commander/test_commander --dot > graph.dot && sed -i '1d' graph.dot && dot -Tsvg -q graph.dot > graph.svg && eog graph.svg
 
 .PHONY: build build-mc build-all
 .PHONY: test test-mc test-all
