@@ -1,10 +1,10 @@
-set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
-	-Wpedantic
-	-pedantic-errors
-	)
+#set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
+	#-Wpedantic
+	#-pedantic-errors
+	#)
 join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 
-add_library(commander ${LIBTYPE}
+add_library(commander
 	StateManual.c
 	StateAuto.c
 	StateGuided.c

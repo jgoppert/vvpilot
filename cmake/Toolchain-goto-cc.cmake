@@ -2,6 +2,7 @@ set(CMAKE_SYSTEM_NAME Model-checking)
 
 find_program(CBMC cbmc)
 find_program(GOTO_CC goto-cc)
+find_program(GOTO_LD goto-ld)
 find_program(GOTO_INST goto-instrument)
 
 set(CBMC_FLAGS

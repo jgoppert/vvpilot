@@ -5,7 +5,7 @@
 
 #include <time.h>
 #include <stdlib.h>
-#include <err.h>
+/*#include <err.h>*/
 
 int main(int argc, char ** argv) {
     UNUSED(argc);
@@ -15,9 +15,6 @@ int main(int argc, char ** argv) {
     mavlink_transceiver_init(&comm);
 
     clock_t start = clock();
-    if (start < 0) {
-        return RET_ERROR;
-    }
 
     float tf = 1.0f;
     float t = 0;
@@ -25,9 +22,6 @@ int main(int argc, char ** argv) {
     do {
         mavlink_transceiver_receive(&comm);
         clock_t now = clock();
-        if (now < 0) {
-            return RET_ERROR;
-        }
         t = (float)(now - start) / CLOCKS_PER_SEC;
     } while(t < tf);
 

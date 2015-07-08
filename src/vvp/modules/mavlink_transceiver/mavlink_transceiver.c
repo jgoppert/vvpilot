@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
-#include <err.h>
+/*#include <err.h>*/
 #include <termios.h>
 
 #include <mavlink/mavlink_helpers.h>
@@ -19,7 +19,8 @@ int mavlink_transceiver_init(mavlink_transceiver_t * this) {
     // NO_CTTY : doesn't want to be controlling terminal
     // NDELAY : doesn't want for characters
     if (fd == -1) {
-        err(1, "unable to open %s\n", device);
+        /*err(1, "unable to open %s\n", device);*/
+        exit(1);
     } else {
         fcntl(fd, F_SETFL, 0);
     }

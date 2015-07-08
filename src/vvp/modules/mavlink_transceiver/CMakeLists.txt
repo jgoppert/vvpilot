@@ -3,7 +3,7 @@ set(CMAKE_C_FLAGS ${CMAKE_C_FLAGS}
 	)
 join("${CMAKE_C_FLAGS}" " " CMAKE_C_FLAGS)
 
-add_library(mavlink_transceiver ${LIBTYPE}
+add_library(mavlink_transceiver
 	mavlink_transceiver.c
 	)
 

@@ -8,6 +8,11 @@
 #include <vvp/cbmc/cbmc_stub.h>
 #include <vvp/common/common.h>
 
+void up_assert(const uint8_t * file, int line) {
+    UNUSED(file);
+    UNUSED(line);
+};
+
 int main(int argc, char ** argv) {
     Commander cmdr;
     int i = 0;
@@ -16,11 +21,11 @@ int main(int argc, char ** argv) {
     commanderInit(&cmdr);
     for (i=0; i<10; i++) {
         commanderEvent_t event = nondet_uint() % EVENT_NUMBER;
-        __CPROVER_assume(event >= 0 && event < EVENT_NUMBER);
+        __CPROVER_assume(event < EVENT_NUMBER);
         printf("state: %d\tevent: %d\t", cmdr.state, event);
         commanderUpdate(&cmdr, event);
         printf("new state: %d\n", cmdr.state);
-        assert(cmdr.state >= 0 && cmdr.state < STATE_NUMBER);
+        assert(cmdr.state < STATE_NUMBER);
     }
     commanderUpdate(&cmdr, EVENT_MANUAL);
     assert(cmdr.state == STATE_MANUAL);

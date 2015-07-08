@@ -1,5 +1,7 @@
 #pragma once
 
+#include <inttypes.h>
+
 /**
  * The possible events, stimulus, for the
  * finite state machine.
@@ -54,7 +56,7 @@ struct Commander_t {
     CallbackManual callbackManual;
     CallbackAuto callbackAuto;
     CallbackGuided callbackGuided;
-    int state;
+    unsigned int state;
 };
 
 /**

@@ -1,0 +1,6 @@
+[submodule "src/rclc"]
+	path = src/rclc
+	url = git@github.com:jgoppert/rclc.git
+[submodule "src/nuttx"]
+	path = src/nuttx
+	url = https://bitbucket.org/patacongo/nuttx.git

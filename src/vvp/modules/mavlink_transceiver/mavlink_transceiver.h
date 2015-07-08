@@ -1,5 +1,7 @@
 #pragma once
 
+typedef long wint_t;
+
 #define MALVINK_USE_CONVENIENCE_FUNCTIONS
 
 #include <mavlink/common/mavlink.h>
